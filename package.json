@@ -1,0 +1,44 @@
+{
+  "name": "wize-template",
+  "version": "0.0.0",
+  "description": "Wizni Template",
+  "authors": "Wizni Inc.",
+  "private": true,
+  "dependencies": {
+    "@wize/koa-server": "^0.1.2",
+    "@wize/runtime-load-routes": "^1.1.1",
+    "@wize/runtime-metadata": "^0.0.5",
+    "@wize/sequelize-runtime": "^0.3.1",
+    "@wize/sequelize-source": "^0.2.3",
+    "babel-preset-wizni-platform": "^1.0.0",
+    "babel-register": "^6.14.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-runtime": "^6.11.6",
+    "eslint": "^3.3.1",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.1.2",
+    "mocha": "^3.0.2",
+    "nyc": "^8.1.0",
+    "supertest": "^2.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint --fix .",
+    "test": "mocha --timeout 15000",
+    "test-cov": "nyc --cache node_modules/mocha/bin/_mocha && nyc report --reporter=lcov"
+  },
+  "nyc": {
+    "exclude": [
+      "node_modules",
+      "**/*/__tests__"
+    ]
+  },
+  "engines": {
+    "node": "6.5.0",
+    "npm": "3.10.3"
+  }
+}

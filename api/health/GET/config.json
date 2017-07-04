@@ -1,0 +1,5 @@
+{
+  "name": "Health Check",
+  "path": "/health",
+  "method": "GET"
+}
