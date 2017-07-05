@@ -12,7 +12,9 @@ export default (source, application, sync)=> {
         appInstance = application;
     else
         appInstance = app;
-
+    
+    if(appDataSource.invalid)
+        return false;
     appDataSource.readModelsFromDirectory(__dirname);
     sync = sync || false;
     return appDataSource.sync({force: sync});

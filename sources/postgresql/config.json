@@ -1,0 +1,18 @@
+{
+    "name": "postgresql",
+    "type": "SQL",
+    "dbName": "",
+    "user": "",
+    "password": "",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres",
+    "options" : {
+    	"logging":false,
+        "pool": {
+            "max": 1,
+            "min": 0,
+            "idle": 10000
+        }
+    }
+}
