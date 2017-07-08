@@ -1,6 +1,5 @@
 import runtime from '@wize/runtime-load-routes';
-import crud from '@wize/sequelize-runtime';
-import path from "path";
+import * as sourceList from '../sources';
 
 export default (app, dirname)=>{
     dirname = dirname || __dirname;
@@ -8,8 +7,8 @@ export default (app, dirname)=>{
     runtime(app, dirname, {
         isAPI: true
     });
-    console.info("****** Creating crud api's");
-    const dataSource = require('../sources/postgresql').default;
-    if(!dataSource.invalid)
-        crud(app, path.join(__dirname, "../", "models"), dataSource);
+
+    console.log("Initialize source apis");
+    sourceList.default.call({app: app});
+    console.log("Initialized source apis");
 }
