@@ -8,6 +8,9 @@
   "port": 5432,
   "dialect": "postgres",
   "options" : {
+    "sync": {
+      "force": true
+    },
     "logging":false,
     "pool": {
       "max": 1,

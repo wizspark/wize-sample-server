@@ -1,7 +1,7 @@
 
 import app from '../app';
 import dataSource from '../sources/postgresql';
-export default (source, application, sync)=> {
+export default (source, application)=> {
     let appDataSource, appInstance;
     if(source)
         appDataSource = source;
@@ -16,6 +16,5 @@ export default (source, application, sync)=> {
     if(appDataSource.invalid)
         return false;
     appDataSource.readModelsFromDirectory(__dirname);
-    sync = sync || false;
-    return appDataSource.sync({force: sync});
+    return appDataSource.sync();
 };
