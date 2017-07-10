@@ -5,7 +5,7 @@ const createServer = ()=>{
   const port = process.env.PORT || 8080;
   app.createServer().listen(port, function onListen(err) {
     if (err) throw err;
-    console.info('Wize Loan Pricer Listening on Port %s', this.address().port);
+    console.info('Application listening on Port %s', this.address().port);
   });
 };
 
@@ -30,6 +30,7 @@ const authenticateAndStart = ()=>{
       setTimeout(authenticateAndStart, 2000);
     })
   } else {
+    console.info('DB not configured in the application.');
     createServer();
   }
 };
