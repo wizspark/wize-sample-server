@@ -1,17 +1,20 @@
 const configuration = require('./config.json');
-const debug = require('debug')('wize-sample');
 
 export default async function () {
     const {app, source} = this;
     try {
-        let apps=Object.keys(configuration);
-        apps.sort((a, b) => configuration[a].priority - configuration[b].priority).forEach(mod => {
-            debug(`Initializing module ${mod}`);
+        let apps = Object.keys(configuration);
+        apps.sort((a, b) => configuration[a].priority - configuration[b].priority).forEach(async(mod) => {
+            console.info(`Initializing module ${mod}`);
             const config = require(`./${mod}/config`);
-            const module = require(`./${mod}/index`);
-
-            module.default.call({app, source}, config.default.get());
-            debug(`Initialized module ${mod}`);
+            const module = require(`./${mod}/index`).default;
+            await module.default.call({app, source}, config.default.get());
+            if (module.registerEvents) {
+                console.info(`Initializing events for ${mod}`);
+                await module.registerEvents();
+                console.info(`Initialized events for ${mod}`);
+            }
+            console.info(`Initialized module ${mod}`);
         });
     } catch (e) {
         console.error(e);
