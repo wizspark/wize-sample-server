@@ -1,4 +1,4 @@
 export default async (ctx) => {
-  ctx.body = "OK";
+  ctx.body = "API Server OK";
   ctx.status = 200;
 };
