@@ -8,7 +8,7 @@
     "@wize/koa-server": "latest",
     "@wize/runtime-load-routes": "latest",
     "@wize/runtime-metadata": "latest",
-    "@wize/rest-runtime": "git+https://1c244cab757c058a12f62fc6699d8b5794114ff0:x-oauth-basic@github.com/wizspark/wize-rest-runtime.git#master",
+    "@wize/rest-runtime": "latest",
     "@wize/sequelize-runtime": "latest",
     "@wize/sequelize-source": "latest",
     "@wize/soap-runtime": "latest",
