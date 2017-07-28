@@ -1,0 +1,3 @@
+api/**/__tests__/*.js
+models/**/__tests__/*.js
+--compilers js:babel-register
